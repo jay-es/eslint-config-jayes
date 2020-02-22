@@ -11,6 +11,20 @@ module.exports = {
     'no-continue': 'off',
     // for文の ++ は許可
     'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
+    // ブロックなどの後、 return 文などの前に空行を入れる
+    'padding-line-between-statements': [
+      'error',
+      {
+        blankLine: 'always',
+        prev: ['block-like', 'multiline-expression'],
+        next: '*',
+      },
+      {
+        blankLine: 'always',
+        prev: '*',
+        next: ['return', 'throw', 'break', 'continue'],
+      },
+    ],
     // airbnb に寄せる
     'prettier/prettier': [
       'error',
